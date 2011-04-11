@@ -38,9 +38,12 @@ try
             row_id = b(1)+1; % row (item) i  
   
             val = b(2); % rating  
-            assert(val >= 0 && val <= 100);  
+            assert(val >= 0 && val <= 100);
             
-            userRatings(row_id) = val;            
+            if (val ==0)
+                val = 0.0000001;
+            end
+            userRatings(row_id) = val;
         end
         
         K(:,col_id) = userRatings;

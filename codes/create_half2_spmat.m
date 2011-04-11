@@ -40,8 +40,11 @@ try
             row_id = b(1)+1; % item/row i  
   
             val = b(2); % rating  
-            assert(val >= 0 && val <= 100);  
+            assert(val >= 0 && val <= 100);
             
+            if (val ==0)
+                val = 0.0000001;
+            end            
             userRatings(row_id) = val;            
         end
         

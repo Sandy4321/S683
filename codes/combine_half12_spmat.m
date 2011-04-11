@@ -20,6 +20,6 @@ clear S;
 
 toc  
 %construct and save a sparse Matlab matrix  
-save(outfile,'-v7.3','K');  
+save(outfile,'-v7.3','K');
 
 whos K; % size 4052812328?
