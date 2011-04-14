@@ -1,4 +1,6 @@
-
+%Deprecated: 
+% Should use spconvert to import from sparse matrix external format
+% http://www.mathworks.com/help/techdoc/ref/spconvert.html
 nUsers=1000990;  
 nItems=624961;  
 nProbeRatings=4003960;

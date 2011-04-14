@@ -1,7 +1,4 @@
 nUsers=1000990;  
-nItems=624961;  
-nTrainRatings=252800275;
-ratings=nTrainRatings;
 
 outfile = 'users.mat';
 
