@@ -12,8 +12,8 @@ tic
 T7 = sparse(nUsers, nItems); % use this if out of memory
 
 nBegin = nPART6+1;
-while (nBegin <= nUsers)
-    nEnd = min(nBegin+nBlocks, nUsers);
+while (nBegin <= nItems)
+    nEnd = min(nBegin+nBlocks, nItems);
     fprintf('Copying from: %d, to: %d \n', nBegin, nEnd);
     T7(:,nBegin:nEnd) = K(nBegin:nEnd,:)';
     nBegin = nEnd+1;    
