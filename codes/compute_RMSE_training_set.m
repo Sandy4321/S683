@@ -15,14 +15,14 @@
 nUsers=1000990;  
 nItems=624961;  
 
-outfile='predict4probe.mat';  % transpose K ans assign to T1
+outfile='predict4train.mat';  % transpose K ans assign to T1
 
 tic
 
-n = nnz(V);
+n = nnz(K);
 
-[rows,cols,vals] = find(V);
-clear V;
+[rows,cols,vals] = find(K);
+clear K;
 
 pred = zeros(n,1);
 
@@ -37,9 +37,9 @@ clear items;
 clear MU;
 
 dev = vals - pred ;
-probe_sse = sum(dev.^2);
-probe_rmse = sqrt(probe_sse/n);
-fprintf('RMSE:  %10.4f \n', probe_rmse);
+sse = sum(dev.^2);
+rmse = sqrt(sse/n);
+fprintf('RMSE:  %10.4f \n', rmse);
 
 clear vals;
 
@@ -49,6 +49,6 @@ clear rows;
 clear cols;
 clear pred;
 
-save(outfile,'-v7.3','P', 'probe_sse', 'probe_rmse');
+save(outfile,'-v7.3','P', 'sse', 'rmse');
 
 toc
