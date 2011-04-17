@@ -25,8 +25,8 @@ while (true)
         break;
     end
 
-    my_user_ratings = abs(users(:,option_id));
-    [~, p] = sort(my_user_ratings);
+    my_user_ratings = users(:,option_id);
+    [~, p] = sort(abs(my_user_ratings));
 
     n = size(p,1);
     most_active_idx = p(n-k+1:n);
