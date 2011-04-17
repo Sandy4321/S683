@@ -2,6 +2,8 @@
 % number of ratings vs random users 
 % load users first
 
+format long;
+
 nUsers=1000990;
 
 k = 10;
