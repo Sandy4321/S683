@@ -28,8 +28,8 @@ while (true)
         median_rating = median(item_ratings);
         mode_rating = mode(item_ratings);
 
-        item_arr =  [num_ratings, mean_rating, item_bias, sd_rating, min_rating, max_rating, median_rating, mode_rating];
-        item_stat = dataset({item_arr, 'num_ratings', 'mean', 'item_bias', 'std', 'min', 'max', 'median', 'mode'});
+        item_arr =  [item, num_ratings, mean_rating, item_bias, sd_rating, min_rating, max_rating, median_rating, mode_rating];
+        item_stat = dataset({item_arr, 'item_id', 'num_ratings', 'mean', 'item_bias', 'std', 'min', 'max', 'median', 'mode'});
         fprintf('Summary statistics: \n');
         disp(item_stat);
 

@@ -26,8 +26,8 @@ while (true)
         median_rating = median(user_ratings);
         mode_rating = mode(user_ratings);
 
-        user_arr =  [num_ratings, mean_rating, user_bias, sd_rating, min_rating, max_rating, median_rating, mode_rating];
-        user_stat = dataset({user_arr, 'num_ratings', 'mean', 'user_bias', 'std', 'min', 'max', 'median', 'mode'});
+        user_arr =  [user_id, num_ratings, mean_rating, user_bias, sd_rating, min_rating, max_rating, median_rating, mode_rating];
+        user_stat = dataset({user_arr, 'user_id', 'num_ratings', 'mean', 'user_bias', 'std', 'min', 'max', 'median', 'mode'});
         fprintf('Summary statistics: \n');
         disp(user_stat);
 

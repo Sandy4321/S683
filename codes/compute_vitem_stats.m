@@ -17,7 +17,7 @@ tic
 % column 7: median score 
 % column 8: mode score 
 
-vitems = zeros(nItems, 8, 'single');
+vitems = zeros(nItems, 9, 'single');
 for j=1:nItems
         if nnz(VT(:,j)) > 0
             item = nonzeros(VT(:,j));
@@ -33,6 +33,9 @@ for j=1:nItems
             vitems(j, 8) = mode(item);
         end
 end
+
+% see which item are not in the probe set 
+vitems(:,9) = vitems(:, 1) > 0;
 
 save(outfile,'-v7.3','vitems');
 toc  
