@@ -1,5 +1,5 @@
 
-nProbeRatings=4003960;
+nUsers=1000990;  
 outfile = 'vusers.mat';
 tic
 
@@ -14,8 +14,8 @@ tic
 % 7. median_rating = median(user_ratings);
 % 8. mode_rating = mode(user_ratings);
     
-vusers = zeros(nProbeRatings, 8, 'single');
-for j=1:nProbeRatings
+vusers = zeros(nUsers, 8, 'single');
+for j=1:nUsers
     user = nonzeros(V(:,j)); 
     %hist(user)    
     vusers(j, 1) = nnz(V(:,j));

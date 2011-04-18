@@ -1,7 +1,7 @@
 nUsers=1000990;  
 nItems=624961;  
 
-outfile='transpose1.mat';  % transpose K ans assign to T1
+outfile='transpose1.mat';  % transpose V ans assign to T1
 
 T1 = sparse(nUsers, nItems); % use this if out of memory
 nBlocks = 99; 
