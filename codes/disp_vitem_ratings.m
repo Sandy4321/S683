@@ -1,13 +1,13 @@
-% plot histogram of item ratings
-% load transpose.mat and mu.mat first
+% plot histogram of item ratings in the validation set 
+% load vt.mat and vmu.mat first
 while (true) 
     item = input('Enter item id: ');    
     if item == -1
         break;
     end
     
-    if nnz(T(:,item)) > 0        
-        item_ratings = nonzeros(T(:,item)); 
+    if nnz(VT(:,item)) > 0
+        item_ratings = nonzeros(VT(:,item)); 
         num_disp = min(100,size(item_ratings,1));
         fprintf('List of first %d item ratings: ', num_disp );
         fprintf('%3.0f,',item_ratings(1:num_disp));
@@ -20,7 +20,7 @@ while (true)
 
         num_ratings = size(item_ratings,1);
         mean_rating = mean(item_ratings);
-        item_bias = mean_rating - MU;
+        item_bias = mean_rating - vMU;
         sd_rating = std(item_ratings);
 
         min_rating = min(item_ratings);
@@ -35,6 +35,7 @@ while (true)
 
         hist(item_ratings);
     else 
-        disp('this item has no rating');
+        disp('this item has no rating in the validation set');
     end
+    
 end

@@ -1,15 +1,15 @@
-% plot histogram of user ratings
-% load trainAll.mat and mu.mat first
+% plot histogram of user ratings in the probe set
+% load validation.mat and vmu.mat first
 while (true) 
     user_id = input('Enter user id: ');    
     if user_id == -1
         break;
     end
 
-    if nnz(K(:,user_id)) > 0            
-        user_ratings = nonzeros(K(:,user_id)); 
+    if nnz(V(:,user_id)) > 0                
+        user_ratings = nonzeros(V(:,user_id)); 
         fprintf('List of user ratings: \n');
-        disp(K(:,user_id));
+        disp(V(:,user_id));
 
         edges = 0:10:110;
         labels = strcat(num2str((0:10:100)','%d'),{'s'});
@@ -18,7 +18,7 @@ while (true)
 
         num_ratings = size(user_ratings,1);
         mean_rating = mean(user_ratings);
-        user_bias = mean_rating - MU;
+        user_bias = mean_rating - vMU;
         sd_rating = std(user_ratings);
 
         min_rating = min(user_ratings);
@@ -33,6 +33,6 @@ while (true)
 
         hist(user_ratings);
     else 
-        disp('this user has no rating');
-    end        
+        disp('This user has no rating');
+    end
 end

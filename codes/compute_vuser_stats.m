@@ -1,9 +1,11 @@
+% create a dense matrix vusers from sparse matrix V
+% load validation
+% load vmu
 
 nUsers=1000990;  
 outfile = 'vusers.mat';
 tic
 
-% create a dense matrix users from sparse matrix V
 % row_id is the user number
 % 1. num_ratings = size(user_ratings,1);
 % 2. mean_rating = mean(user_ratings);
