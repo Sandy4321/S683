@@ -16,16 +16,16 @@ while (true)
         break;
     end
     
-    fprintf('observed rating for user %d: \n', user_id);
-    disp(K(:,user_id)); % display observed rating in the validation set
-
     fprintf('training/estimation statistics for user %d: \n', user_id);
     %disp(users(user_id,:));    
     user_arr =  [user_id, users(user_id,:)];
     user_stat = dataset({user_arr, 'user_id', 'num_ratings', 'mean', 'user_bias', 'std', 'min', 'max', 'median', 'mode'});    
     disp(user_stat);
     
-    [ids, ~, ~] = find(K(:,user_id));
+    [ids, uids, tRatings] = find(K(:,user_id));
+    [~, ~, pRatings] = find(P(:,user_id));    
+    all_ratings = [ids, uids, pRatings, tRatings, pRatings-tRatings];
+    rating_report = dataset({all_ratings, 'item_id', 'user_id', 'predicted_rating', 'true_rating', 'predicted_error'});
     
     fprintf('training statistics for associated items \n');
     %disp(items(ids,:));
@@ -33,6 +33,8 @@ while (true)
     item_stat = dataset({item_arr, 'item_id', 'num_ratings', 'mean', 'item_bias', 'std', 'min', 'max', 'median', 'mode'});    
     disp(item_stat);
 
-    fprintf('predicted ratings for user %d \n', user_id);
-    disp(P(:,user_id)); % display predicted ratings 
+    fprintf('predicted ratings vs true ratings for user %d \n', user_id); 
+    disp(rating_report);
+    
+    
 end
