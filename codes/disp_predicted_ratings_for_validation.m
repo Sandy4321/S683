@@ -19,10 +19,13 @@ while (true)
     end
     
    
-    [ids, uids, tRatings] = find(V(:,user_id));
-    [~, ~, pRatings] = find(P(:,user_id));    
-    all_ratings = [ids, uids, pRatings, tRatings, pRatings-tRatings];
-    rating_report = dataset({all_ratings, 'item_id', 'user_id', 'predicted_rating', 'true_rating', 'predicted_error'});    
+    [~, ~, pRatings] = find(P(:,user_id));
+    [ids, ~, tRatings] = find(V(:,user_id));
+    
+    n = nnz(V(:,user_id));
+    uids = zeros(n,1) + user_id;        
+    all_ratings = [uids, ids, pRatings, tRatings, pRatings-tRatings]; 
+    rating_report = dataset({all_ratings, 'user_id', 'item_id', 'predicted_rating', 'true_rating', 'predicted_error'});
     
     fprintf('training/estimation statistics for user %d: \n', user_id);
     user_arr =  [user_id, users(user_id,:)];
